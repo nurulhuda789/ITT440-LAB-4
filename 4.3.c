@@ -10,7 +10,7 @@ int main(int argc , char *argv[])
 	char ip[100];
 	struct hostent *he;
 	struct in_addr **addr_list;
-	int i;
+	
 		
 	if ( (he = gethostbyname( hostname ) ) == NULL) 
 	{
@@ -22,7 +22,7 @@ int main(int argc , char *argv[])
 	//Cast the h_addr_list to in_addr , since h_addr_list also has the ip address in long format only
 	addr_list = (struct in_addr **) he->h_addr_list;
 	
-	for(i = 0; addr_list[i] != NULL; i++) 
+	for(int i = 0; addr_list[i] != NULL; i++) 
 	{
 		//Return the first one;
 		strcpy(ip , inet_ntoa(*addr_list[i]) );
